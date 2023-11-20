@@ -43,7 +43,7 @@ body {
 
   padding: 10px 20px;
 
-  font-size: 10px;
+  font-size: 16px;
   font-family: "Nanum Pen Script";
   white-space: nowrap;
 }
@@ -215,4 +215,84 @@ header button {
 
   font-family: "Nanum Pen Script";
   font-size: 20px;
+}
+.DiaryEditor .emotion_list_wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 2%;
+}
+
+.DiaryEditor textarea {
+  font-family: "Nanum Pen Script";
+  font-size: 20px;
+
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  /* 위 아래로만 칸을 늘릴수 있음 */
+  resize: vertical;
+
+  border: none;
+  border-radius: 5px;
+  background-color: #e2e2e2;
+
+  padding: 20px;
+}
+
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* EmotionItem */
+.EmotionItem {
+  cursor: pointer;
+  border-radius: 5px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.EmotionItem img {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.EmotionItem span {
+  font-size: 18px;
+}
+
+.EmotionItem_off {
+  background-color: #ececec;
+}
+
+.EmotionItem_on1 {
+  background-color: #64c964;
+  color: white;
+}
+
+.EmotionItem_on2 {
+  background-color: #9dd772;
+  color: white;
+}
+
+.EmotionItem_on3 {
+  background-color: #fdce17;
+  color: white;
+}
+
+.EmotionItem_on4 {
+  background-color: #fd8446;
+  color: white;
+}
+
+.EmotionItem_on5 {
+  background-color: #fd565f;
+  color: white;
 }
