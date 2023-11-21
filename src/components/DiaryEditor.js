@@ -12,7 +12,7 @@ import { useState, useRef, useContext, useEffect } from "react";
 const DiaryEditor = ({ isEdit, originData }) => {
   const navigate = useNavigate();
   const contentRef = useRef();
-  const { onCreate, onEdit } = useContext(DiaryDispatchContext);
+  const { onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
 
   const [date, setDate] = useState(getStringDate(new Date()));
   const [emotion, setEmotion] = useState(3);
@@ -44,6 +44,13 @@ const DiaryEditor = ({ isEdit, originData }) => {
     // 뒤로가기를 통해 작성 페이지로 오지 못하도록 replace 옵션을 true로 설정
   };
 
+  const handleRemove = () => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      onRemove(originData.id);
+      navigate("/", { replace: true });
+    }
+  };
+
   useEffect(() => {
     if (isEdit) {
       setDate(getStringDate(new Date(parseInt(originData.date))));
@@ -58,6 +65,15 @@ const DiaryEditor = ({ isEdit, originData }) => {
         headText={isEdit ? "일기 수정하기" : "새 일기쓰기"}
         leftChild={
           <MyButton text={"< 뒤로가기"} onClick={() => navigate(-1)} />
+        }
+        rightChild={
+          isEdit && (
+            <MyButton
+              type={"negative"}
+              text={"삭제하기"}
+              onClick={handleRemove}
+            />
+          )
         }
       />
       <div>
