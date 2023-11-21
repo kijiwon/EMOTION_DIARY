@@ -21,7 +21,11 @@ const Home = () => {
       new Date(curDate.getFullYear(), curDate.getMonth() - 1, curDate.getDate())
     );
   };
-  console.log(curDate);
+
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정 일기장 `;
+  }, []);
 
   useEffect(() => {
     if (diaryList.length >= 1) {
